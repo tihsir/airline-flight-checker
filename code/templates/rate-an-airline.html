@@ -1,0 +1,94 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate an airline!</title>
+</head>
+
+<body>
+    <div class="div1">
+        <h1>Create an airline rating! Please enter your userID, airline code (refer below), and rating (1-5):</h1>
+        <ul>
+            <li>UA: United Air Lines Inc.</li>
+            <li>AA: American Airlines Inc.</li>
+            <li>US: US Airways Inc.</li>
+            <li>F9: Frontier Airlines Inc.</li>
+            <li>B6: JetBlue Airways</li>
+            <li>OO: Skywest Airlines Inc.</li>
+            <li>AS: Alaska Airlines Inc.</li>
+            <li>NK: Spirit Air Lines</li>
+            <li>WN: Southwest Airlines Co.</li>
+            <li>DL: Delta Air Lines Inc.</li>
+            <li>EV: Atlantic Southeast Airlines</li>
+            <li>HA: Hawaiian Airlines Inc.</li>
+            <li>MQ: American Eagle Airlines Inc.</li>
+            <li>VX: Virgin America</li>
+        </ul>
+        <form action="{{ url_for('create_rating') }}" method="post">
+            <label for="user_id">User ID:</label>
+            <input type="text" id="user_id" name="user_id" required>
+            <label for="airline">Airline:</label>
+            <input type="text" id="airline" name="airline" required>
+            <label for="user_rating">Rating (1-5):</label>
+            <input type="number" id="user_rating" name="user_rating" min="1" max="5" required>
+            <button type="submit">Create Rating</button>
+        </form>
+        <h2>{{message}}</h2>
+        <h2>Read all airline ratings!</h2>
+        <form action="{{ url_for('read_rating') }}" method="get">
+            <button type="submit">Read Ratings</button>
+        </form>
+        <table border="1">
+            <tr>
+                <th>Airline Code</th>
+                <th>Airline Name</th>
+                <th>Average User Rating</th>
+            </tr>
+            {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <!-- <table border="1">
+            <tr>
+                <th>Airline Code</th>
+                <th>Airline Name</th>
+                <th>Average User Rating</th>
+            </tr>
+            {% for airline in data %}
+            <tr>
+                <td>{{ airline['IATAcodeAirline'] }}</td>
+                <td>{{ airline['airline'] }}</td>
+                <td>{{ airline['AvgUserRating'] }}</td>
+            </tr>
+            {% endfor %}
+        </table> -->
+        <h3>Update an airline rating! Please enter your userID, airline code (refer above), and new rating (1-5):</h3>
+        <form action="{{ url_for('update_rating') }}" method="post">
+            <label for="user_id_update">User ID:</label>
+            <input type="text" id="user_id_update" name="user_id" required>
+            <label for="airline_update">Airline:</label>
+            <input type="text" id="airline_update" name="airline" required>
+            <label for="user_rating_update">New Rating (1-5):</label>
+            <input type="number" id="user_rating_update" name="user_rating" min="1" max="5" required>
+            <button type="submit">Update Rating</button>
+        </form>
+        <h2>{{message}}</h2>
+        <h4>Delete an airline rating! Please enter your userID and airline code (refer above):</h4>
+        <form action="{{ url_for('delete_rating') }}" method="POST" enctype="application/x-www-form-urlencoded">
+            <label for="user_id_delete">User ID:</label>
+            <input type="text" id="user_id_delete" name="user_id" required>
+            <label for="airline_delete">Airline:</label>
+            <input type="text" id="airline_delete" name="airline" required>
+            <button type="submit">Delete Rating</button>
+        </form>
+        <h2>{{message}}</h2>
+    </div>
+</body>
+
+</html>

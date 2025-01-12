@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account Page</title>
+</head>
+<body>
+    <h3>Create your account here!</h3>
+   
+    <form action="{{ url_for('create_account') }}" method="post">
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <label for="phonenum"><b>Phone Number</b></label>
+            <input type="text" placeholder="Enter Phone Number" name="phonenum" required>
+            <button type="submit">Create My Account</button>
+        </div>
+    </form>
+    {% if error %}
+        <div>{{ error }}</div>
+    {% endif %}
+</body>
+</html>
+

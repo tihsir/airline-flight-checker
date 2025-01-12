@@ -1,0 +1,98 @@
+<!-- <html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worst Timings to Fly!</title>
+</head>
+
+<body>
+    <div class="div1">
+        <h1>Search a month below to find the 5 worst days to fly for the month! Please enter a number between 1-12:</h1>
+        <h2>1: January
+            2: February
+            3: March
+            4: April
+            5: May
+            6: June
+            7: July
+            8: August
+            9: September
+            10: October
+            11: November
+            12: December</h2>
+        <form action="{{ url_for('worst_times_to_fly') }}" method="get">
+            <label for="month">Month:</label>
+            <input type="number" id="month" name="month" min="1" max="12" required>
+            <button type="submit">Submit</button>
+        </form>
+        <h1>Search a month below to see a bar chart with the total number of departure delays and cancellations for that month! Please enter a number between 1-12 (months correspond above):</h1>
+        <form action="{{ url_for('plot') }}" method="get">
+            <label for="month_plot">Month:</label>
+            <input type="number" id="month_plot" name="month" min="1" max="12" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html> -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worst Timings to Fly!</title>
+</head>
+
+<body>
+    <div class="div1">
+        <h1>Search a month below to find the 5 worst days to fly for the month! Please enter a
+            number between 1-12:</h1>
+        <ol>
+            <li>January</li>
+            <li>February</li>
+            <li>March</li>
+            <li>April</li>
+            <li>May</li>
+            <li>June</li>
+            <li>July</li>
+            <li>August</li>
+            <li>September</li>
+            <li>October</li>
+            <li>November</li>
+            <li>December</li>
+        </ol>
+        <form action="{{ url_for('keyword_search') }}" method="get">
+            <label for="month">Month:</label>
+            <input type="number" id="month" name="month" min="1" max="12" required>
+            <button type="submit">Submit</button>
+        </form>
+        <table border="1">
+            <tr>
+                <th>Month</th>
+                <th>Day</th>
+                <th>Total Flights</th>
+                <th>Number of Delays or Cancellations</th>
+            </tr>
+            {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2>Search a month below to see a bar chart with the total number of departure delays
+            and cancellations for that month! Please enter a number between 1-12 (months
+            correspond above):</h2>
+        <form action="{{ url_for('plot') }}" method="get">
+            <label for="month_plot">Month:</label>
+            <input type="number" id="month_plot" name="month" min="1" max="12" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

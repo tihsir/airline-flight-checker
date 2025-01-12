@@ -1,0 +1,29 @@
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Airports to Fly!</title>
+    </head>
+    <body>
+        <h1>Below are the best airports to fly to!</h1>
+        <form action="{{ url_for('stored_procedure') }}" method="get">
+            <button type="submit">Submit</button>
+        </form>
+        <table border="1">
+        <tr>
+            <th>Airport IATA</th>
+            <th>Airport Name</th>
+            <th>Delay Rating</th>
+            <th>Average Airline Departure Delay</th>
+        </tr>
+        {% for airport in data %}
+        <tr>
+            <td>{{ airport['AirportIATA'] }}</td>
+            <td>{{ airport['AirportName'] }}</td>
+            <td>{{ airport['DelayRating'] }}</td>
+            <td>{{ airport['avgAirlineDepartureDelay'] }}</td>
+        </tr>
+        {% endfor %}
+        </table>
+    </body>
+</html>

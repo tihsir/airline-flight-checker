@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}"> -->
+    <!-- <link rel="stylesheet" href="./static/style.css" /> -->
+    <!-- not able to link to CSS file so will link to inline script tags -->
+    <style>
+        body, html {
+            /* ensure the page fits the entire page but not working?? so I adjusted the padding levels */
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            /* to prevent scrolling */
+            overflow: hidden;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .div1 {
+            background-color: lightslategrey;
+            border-radius: 40px;
+            border: 10px solid black;
+            padding: 300px;
+            text-align: center;
+        }
+        .h3-1 {
+            font-size: x-large;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: italic;
+            text-shadow: 50px;
+        }
+        /* ensure the image is rounded */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .btn1 {
+            background-color: burlywood;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 30px;
+            border-width: 30px;
+            padding: 20px;
+            position: absolute; 
+            left: 400px; 
+            top: 100px;
+        }
+        .btn2 {
+            background-color: burlywood;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 30px;
+            border-width: 30px;
+            padding: 20px;
+            position: absolute; 
+            left: 900px; 
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <h3 class="h3-1">Find the best and worst times to fly!</h3>
+        <form action="{{ url_for('create_account') }}" method="get">
+            <button type="submit" class="btn1">Create an Account</button>
+        </form>
+        <form action="{{ url_for('user_login')}}" method="get">
+            <button type="submit" class="btn2">Login to my Account</button>
+        </form>
+        <img src="./static/plane-home.jpeg" alt="Home Page Plane">
+    </div>
+</body>
+</html>

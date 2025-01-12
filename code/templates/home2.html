@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to “Worst Timings to Fly!”</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .div1 {
+            background-color: lightslategrey;
+            border-radius: 40px;
+            border: 10px solid black;
+            padding: 300px;
+            text-align: center;
+        }
+
+        .h3-1 {
+            font-size: x-large;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: italic;
+            text-shadow: 50px;
+        }
+        .btn1 {
+            background-color: burlywood;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 30px;
+            border-width: 30px;
+            padding: 20px;
+            position: absolute;
+            left: 400px;
+            top: 100px;
+        }
+        .btn2 {
+            background-color: burlywood;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 30px;
+            border-width: 30px;
+            padding: 20px;
+            position: absolute;
+            left: 650px;
+            top: 100px;
+        }
+        .btn3 {
+            background-color: burlywood;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 30px;
+            border-width: 30px;
+            padding: 20px;
+            position: absolute; 
+            left: 900px; 
+            top: 100px;
+        }
+        .btn4 {
+            background-color: burlywood;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 30px;
+            border-width: 30px;
+            padding: 20px;
+            position: absolute; 
+            left: 650px; 
+            top: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <h3 class="h3-1">Get started:</h3>
+        <h3>You are logged in as: </h3>
+        <h4>User id: {{ data }}</h4>
+        <!-- <div class="div1">
+            {% if session['user_id'] %}
+            <h4>Welcome, UserID: {{ session['user_id'] }}</h4>
+            {% endif %}
+        </div> -->
+        <form action="{{ url_for('worst_times_to_fly') }}" method="get">
+            <button type="submit" class="btn1">Worst Timings to Fly!</button>
+        </form>
+        <form action="{{ url_for('best_airports_to_fly')}}" method="get">
+            <button type="submit" class="btn2">Best Airports to Fly!</button>
+        </form>
+        <form action="{{ url_for('rate_an_airline')}}" method="get">
+            <button type="submit" class="btn3">Rate an Airline!</button>
+        </form>
+    </div>
+</body>
+
+</html>
